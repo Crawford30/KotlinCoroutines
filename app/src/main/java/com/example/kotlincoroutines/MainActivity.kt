@@ -14,6 +14,8 @@ import kotlinx.coroutines.withContext
 class MainActivity : AppCompatActivity() {
     private val RESULT_1 = "Result #1"
 
+    private val RESULT_2 = "Result #2"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -75,6 +77,11 @@ class MainActivity : AppCompatActivity() {
         setTextOnMainThread(result_1)
 
         println("Debug: ${result_1}")
+
+        //=======RESULT 2 =====
+        val result_2 = getResult2FromApi()
+
+        setTextOnMainThread(result_2)
     }
 
     private suspend fun getResult1FromApi(): String {
@@ -89,6 +96,16 @@ class MainActivity : AppCompatActivity() {
         //Thread.sleep(1000) //will sleep the entire threads
 
         return RESULT_1
+    }
+
+    //===============USING RESULT IN ANOTHER METHOD====
+    private suspend fun getResult2FromApi(): String {
+        logThread("getResult2FromApi")
+
+        delay(1000)
+
+        return RESULT_2
+
     }
 
 
