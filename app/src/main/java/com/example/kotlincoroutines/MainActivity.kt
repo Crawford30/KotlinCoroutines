@@ -37,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+    //========================
     private fun setNewText(input: String) {
         val newText = text.text.toString() + "\n$input"
         text.text = newText
@@ -45,13 +47,15 @@ class MainActivity : AppCompatActivity() {
     private suspend fun setTextOnMainThread(input:String){
 
         //do the work on the main thread
+
+        //withContext in a coroutine will change the context or the coroutine to the one specified
         withContext(Main){
 
             setNewText(input)
 
         }
 
-        //Or
+        //Or, the launch will build the new one.
 
 //        CoroutineScope(Main).launch {
 //            setNewText(input)
