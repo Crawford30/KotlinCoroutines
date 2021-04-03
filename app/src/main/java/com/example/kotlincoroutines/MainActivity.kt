@@ -12,6 +12,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
+
+    //https://www.raywenderlich.com/1423941-kotlin-coroutines-tutorial-for-android-getting-started#toc-anchor-005
     private val RESULT_1 = "Result #1"
 
     private val RESULT_2 = "Result #2"
